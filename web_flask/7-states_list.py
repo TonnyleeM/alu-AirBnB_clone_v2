@@ -10,16 +10,16 @@ from flask import render_template
 app = Flask(__name__)
 
 
-@app.route('/cities_by_states', strict_slashes=False)
-def cities_route():
+@app.route('/states_list', strict_slashes=False)
+def states():
     """Comment"""
-    return render_template('8-cities_by_states.html',
+    return render_template('7-states_list.html',
                            states=storage.all('State').values())
 
 
 @app.teardown_appcontext
 def teardown(self):
-    """Removes the current SQLAlchemy Session"""
+    """Remove the current SQLAlchemy Session"""
     storage.close()
 
 
